@@ -1,1 +1,8 @@
 
+struct cell {
+  int flood_fill; // flood fill value
+  bool N;   // 1 if the wall north of cell is present
+  bool E;   
+  bool S;
+  bool W;
+};

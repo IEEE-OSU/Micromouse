@@ -1,1 +1,37 @@
+typedef struct {
+  int ffVal; //flood fill value
+  bool N; //boolean values for if there is a wall erected to the north, south, east, and west
+  bool S;
+  bool E;
+  bool W;
+} cell;
+
+cell maze[16][16];
+
+
+//Assign flood fill values to the entire 16x16 maze
+for (int i = 0; i < 8; i++) {
+  for (int j = 0; j < i + 1; j++) {
+    //diagonal mapping out from center
+    maze[7-j][7-i+j].ffVal = i;
+    maze[7-j][8+i-j].ffVal = i;
+    maze[8+j][7-i+j].ffVal = i;
+    maze[8+j][8+i-j].ffVal = i;
+    //diagonal mapping from corners
+    maze[i-j][j].ffVal = 14-i;
+    maze[i-j][15-j].ffVal = 14-i;
+    maze[15-i+j][j].ffVal = 14-i;
+    maze[15-i+j][15-j].ffVal = 14-i;
+  }
+}
+
+
+//Construct original walls on outskirts of maze
+for (int i = 0; i < 16; i++ ) {
+  maze[0][i].N = 1; //North Wall in 1st row
+  maze[15][i].S = 1; //South Wall in 16th row
+  maze[i][0].W = 1; //West Wall in 1st column
+  maze[i][15].E = 1; //East Wall in 16th column
+}
+maze[0][0].S = 1; //known south wall of starting point
 

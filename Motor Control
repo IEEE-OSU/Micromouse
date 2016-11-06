@@ -14,9 +14,19 @@ void loop() {
   // put your main code here, to run repeatedly:
 }
 
-void Motor(){
-pinMode(L_motor_pin, OUTPUT); // Sets the pins to the right mode
-pinMode(R_motor_pin, OUTPUT);
+void Motor(int SPEED) {
+  pinMode(L_m_fwd_pin, OUTPUT); // Sets the pins to the right mode
+  pinMode(L_m_rev_pin, OUTPUT);
+  pinMode(R_m_fwd_pin, OUTPUT);
+  pinMode(R_m_rev_pin, OUTPUT);
 
-  
+  if (abs(SPEED) > 255) {
+    return ; // Insures values speed is a valid int
+  }
+  else if(SPEED > 0){
+    
+  }
+
+
 }
+

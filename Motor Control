@@ -1,5 +1,4 @@
 
-
 int L_m_fwd_pin = 3;  // Left Motor Fwd Arbitrary pin numbers
 int L_m_rev_pin = 4;  // Left motor Reverse
 int R_m_fwd_pin = 5;  // Right motor FWD
@@ -20,11 +19,20 @@ void Motor(int SPEED) {
   pinMode(R_m_fwd_pin, OUTPUT);
   pinMode(R_m_rev_pin, OUTPUT);
 
-  if (abs(SPEED) > 255) {
+  if (abs(SPEED) > 128) {  // limiting max speed to 50%
     return ; // Insures values speed is a valid int
   }
-  else if(SPEED > 0){
-    
+  else if(SPEED >= 0){ 
+    analogWrite(L_m_fwd_pin, SPEED);
+    analogWrite(R_m_fwd_pin, SPEED);
+    analogWrite(L_m_rev_pin, 0);
+    analogWrite(R_m_rev_pin, 0);
+  }
+  else(SPEED <0){
+    analogWrite(L_m_fwd_pin, 0);
+    analogWrite(R_m_fwd_pin, 0);
+    analogWrite(L_m_rev_pin, SPEED);
+    analogWrite(R_m_rev_pin, SPEED);
   }
 
 

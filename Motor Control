@@ -1,3 +1,5 @@
+// This is the motor control with the ideal that a H-bridge will be used.
+
 
 int L_m_fwd_pin = 3;  // Left Motor Fwd Arbitrary pin numbers
 int L_m_rev_pin = 4;  // Left motor Reverse

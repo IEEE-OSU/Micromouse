@@ -1,1 +1,22 @@
 
+
+int L_m_fwd_pin = 3;  // Left Motor Fwd Arbitrary pin numbers
+int L_m_rev_pin = 4;  // Left motor Reverse
+int R_m_fwd_pin = 5;  // Right motor FWD
+int R_m_rev_pin = 6;  // Right motor Reverse
+
+
+void setup() {
+  // put your setup code here, to run once:
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}
+
+void Motor(){
+pinMode(L_motor_pin, OUTPUT); // Sets the pins to the right mode
+pinMode(R_motor_pin, OUTPUT);
+
+  
+}

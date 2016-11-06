@@ -1,7 +1,7 @@
 // This is the motor control with the ideal that a H-bridge will be used.
 
 
-int L_m_fwd_pin = 3;  // Left Motor Fwd Arbitrary pin numbers
+int L_m_fwd_pin = 3;  // Left Motor Fwd  //Arbitrary pin numbers
 int L_m_rev_pin = 4;  // Left motor Reverse
 int R_m_fwd_pin = 5;  // Right motor FWD
 int R_m_rev_pin = 6;  // Right motor Reverse
@@ -13,6 +13,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+Motor(-255);
+  
 }
 
 void Motor(int SPEED) {
@@ -30,7 +32,7 @@ void Motor(int SPEED) {
     analogWrite(L_m_rev_pin, 0);
     analogWrite(R_m_rev_pin, 0);
   }
-  else(SPEED <0){
+  else{ //SPEED < 0
     analogWrite(L_m_fwd_pin, 0);
     analogWrite(R_m_fwd_pin, 0);
     analogWrite(L_m_rev_pin, SPEED);
@@ -39,4 +41,3 @@ void Motor(int SPEED) {
 
 
 }
-
